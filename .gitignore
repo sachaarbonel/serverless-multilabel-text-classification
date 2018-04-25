@@ -18,7 +18,7 @@ var/
 
 # Serverless directories
 .serverless
-venv/
+tensorflow/
 node_modules/
 .vscode/
 __pycache__/
