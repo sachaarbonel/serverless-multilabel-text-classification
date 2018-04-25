@@ -18,3 +18,7 @@ var/
 
 # Serverless directories
 .serverless
+venv/
+node_modules/
+.vscode/
+__pycache__/
