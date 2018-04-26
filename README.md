@@ -1,6 +1,6 @@
 # Tensorflow serverless 
 
-chmod +x build_vendor.sh
+
 
 A ready to deploy example repo as explained in this [blog](https://serverless.com/blog/serverless-python-packaging/)
 
@@ -22,34 +22,20 @@ npm install -g serverless
 
 ## Getting started
 ```
-git clone https://github.com/Sach97/serverless-tensorflow.git
+git clone https://github.com/Sach97/serverless-multilabel-text-classification.git
+mkdir vendored
 cd serverless-tensorflow
+chmod +x build_vendored.sh
+chmod +x clean_venv.sh
+virtualenv venv --python=python3
 source venv/bin/activate
-pip install requirements.txt
-npm install --save serverless-python-requirements
-```
-
-## Run locally
-
-```
-serverless invoke local -f tensorflow --data '{"a":15,"b":5}' --log
-```
-
-## Deploy
-
-```
-serverless deploy
-serverless invoke -f tensorflow --data '{"a":15,"b":5}' --log
-```
-
-## Undeploy
-
-```
-serverless remove
+pip3 install git+https://github.com/inspirehep/magpie.git@v2.0 && pip3 install tensorflow
 ```
 
 ## TODOs
 
+- [ ] Create a real function not just an import magpie
+- [ ] Make a better shell script for the zip
 - [ ] Add [CircleCI](https://serverless.com/blog/ci-cd-workflow-serverless-apps-with-circleci/) continuous integration badge and an explanation guide. 
 - [ ] Add an AWS deployment button
 
