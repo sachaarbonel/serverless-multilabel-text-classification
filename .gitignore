@@ -22,3 +22,5 @@ tensorflow/
 node_modules/
 .vscode/
 __pycache__/
+venv/
+vendored/magpie.zip

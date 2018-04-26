@@ -1,5 +1,7 @@
 # Tensorflow serverless 
 
+chmod +x build_vendor.sh
+
 A ready to deploy example repo as explained in this [blog](https://serverless.com/blog/serverless-python-packaging/)
 
 ## Prerequesites

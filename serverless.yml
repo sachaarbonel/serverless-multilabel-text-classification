@@ -1,27 +1,25 @@
+service: serverless-tensorflow
 
-service: numpy-test
+package:
+  exclude:
+    - .gitignore
+    -.vscode/
+    -.git/
+    - README.md
+    - package.json
+    - package-lock.json
+    - node_modules/**
+    - venv/*
+    - build_vendored.sh
+    - clean_venv.sh
 
 provider:
   name: aws
   runtime: python3.6
+  stage: dev
+  region: us-west-1
+  timeout: 30
 
-# functions:
-#   numpy:
-#     handler: handler.main
 functions:
-  tensorflow:
-    handler: handler.add
-    events:
-      - http:
-          path: /
-          method: post
-          cors: true
-
-plugins:
-  - serverless-python-requirements
-
-
-
-custom:
-  pythonRequirements:
-    dockerizePip: non-linux
+  predict:
+    handler: handler.main

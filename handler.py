@@ -1,28 +1,34 @@
-import json
-import tensorflow as tf
-import logging
+import magpie
+# try:
+#     import unzip_requirements
+# except ImportError:
+#     pass
 
-logger = logging.getLogger()
-if logger.handlers:
-    for handler in logger.handlers:
-        logger.removeHandler(handler)
-logging.basicConfig(level=logging.INFO)
+# #import json
+# import tensorflow as tf
+# import logging
 
-def add(event, context):
+# logger = logging.getLogger()
+# if logger.handlers:
+#     for handler in logger.handlers:
+#         logger.removeHandler(handler)
+# logging.basicConfig(level=logging.INFO)
 
-    logger.info('Event : {}'.format(event))
-    logger.info('Event a : {}'.format(event['a']))
+# def add(event, context):
 
-    a = tf.constant(event['a'])
-    b = tf.constant(event['b'])
+#     logger.info('Event : {}'.format(event))
+#     logger.info('Event a : {}'.format(event['a']))
 
-    result = tf.Session().run(tf.add(a, b))
+#     a = tf.constant(event['a'])
+#     b = tf.constant(event['b'])
 
-    return {
-        "message": "TensorFlow \"add\" function test: {} + {}".format(event['a'], event['b']),
-        "result": "{}".format(result)
-    }
+#     result = tf.Session().run(tf.add(a, b))
+
+#     return {
+#         "message": "TensorFlow \"add\" function test: {} + {}".format(event['a'], event['b']),
+#         "result": "{}".format(result)
+#     }
 
 
-    if __name__ == "__main__":
-        main('', '')
+#     if __name__ == "__main__":
+#         main('', '')
