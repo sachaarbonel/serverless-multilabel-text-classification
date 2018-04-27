@@ -30,6 +30,8 @@ chmod +x clean_venv.sh
 virtualenv venv --python=python3
 source venv/bin/activate
 pip3 install git+https://github.com/inspirehep/magpie.git@v2.0 && pip3 install tensorflow
+sh clean_venv.sh
+build_vendored.sh
 ```
 
 ## TODOs
