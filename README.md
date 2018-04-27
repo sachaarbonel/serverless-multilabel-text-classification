@@ -24,7 +24,7 @@ npm install -g serverless
 ```
 git clone https://github.com/Sach97/serverless-multilabel-text-classification.git
 mkdir vendored
-cd serverless-tensorflow
+cd serverless-multilabel-text-classification
 chmod +x build_vendored.sh
 chmod +x clean_venv.sh
 virtualenv venv --python=python3
