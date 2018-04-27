@@ -3,8 +3,6 @@ service: serverless-tensorflow
 package:
   exclude:
     - .gitignore
-    -.vscode/
-    -.git/
     - README.md
     - package.json
     - package-lock.json

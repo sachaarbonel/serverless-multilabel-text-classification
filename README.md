@@ -23,7 +23,6 @@ npm install -g serverless
 ## Getting started
 ```
 git clone https://github.com/Sach97/serverless-multilabel-text-classification.git
-mkdir vendored
 cd serverless-multilabel-text-classification
 chmod +x build_vendored.sh
 chmod +x clean_venv.sh
@@ -37,7 +36,7 @@ build_vendored.sh
 ## TODOs
 
 - [ ] Create a real function not just an import magpie
-- [ ] Make a better shell script for the zip
+- [x] Make a better shell script for the zip
 - [ ] Add [CircleCI](https://serverless.com/blog/ci-cd-workflow-serverless-apps-with-circleci/) continuous integration badge and an explanation guide. 
 - [ ] Add an AWS deployment button
 
