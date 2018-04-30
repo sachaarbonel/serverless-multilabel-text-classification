@@ -1,10 +1,19 @@
-from magpie import Magpie
-import json
-import tensorflow as tf
-import logging
+'''
+This is needed so that the script running on AWS will pick up the pre-compiled dependencies
+from the vendored folder
+'''
 import os
+import sys
+current_location = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(current_location, 'vendored'))
+
+
+from magpie_model import MagpieModel
+import json
+import logging
 import pickle
 import numpy as np
+import utils
 
 logger = logging.getLogger()
 if logger.handlers:
@@ -12,30 +21,28 @@ if logger.handlers:
         logger.removeHandler(handler)
 logging.basicConfig(level=logging.INFO)
 
+
+'''
+Declare global objects living across requests
+'''
+model_dir = utils.create_model_dir()
+utils.download_model_from_bucket(model_dir)
+# currentdir = os.path.join(os.getcwd()) # uncomment this for simulating local lambda invoke
+# model_dir = currentdir+ '/model' #  uncomment this for simulating local lambda invoke
+magpie_model = MagpieModel(model_dir)
+
 def predict(event,context):
+
     logger.info('Event : {}'.format(event))
     logger.info('Event text : {}'.format(event['text']))
     text = event['text']
-    labels = load_labels()
-    magpie = Magpie(
-    keras_model='model/keras_model.h5',
-    word2vec_model='model/w2v_model',
-    scaler='model/scaler',
-    labels= labels
-    )
-
-    predicted_text = magpie.predict_from_text(text)
+    
+    predicted_text = magpie_model.predict_from_text(text)
     logger.info('Predicted text : {}'.format(predicted_text))
 
     return {
         "result": np.array(predicted_text).tolist()
     }
-
-def load_labels():
-    currentdir = os.path.join(os.getcwd())
-    with open(currentdir+'/model/labels.pkl', 'rb') as f:
-        labels= pickle.load(f)
-    return labels
 
 
 if __name__ == "__main__":

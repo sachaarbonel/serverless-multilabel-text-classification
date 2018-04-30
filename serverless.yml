@@ -11,14 +11,28 @@ package:
     - build_vendored.sh
     - clean_venv.sh
     - data/**
-    # - model/**
+    - train_model.py
+    - __pycache__/**
+    - model/**
+    - upload_model.py
+    - model.zip
 
 provider:
   name: aws
   runtime: python3.6
   stage: dev
-  region: us-west-1
+  region: us-east-1
   timeout: 30
+  environment:
+    TF_AWS_MODEL_ZIP_FILE_NAME: model.zip
+    TF_AWS_S3_MODEL_BUCKET_NAME: magpie-model
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:GetObject"
+      Resource:
+        - "arn:aws:s3:::magpie-model"
+        - "arn:aws:s3:::magpie-model/*"
 
 functions:
   predict:
