@@ -27,8 +27,12 @@ if __name__ == '__main__':
     # extract everything from zip
     with zipfile.ZipFile(target_model_zip_path, 'r') as zip_ref:
         zip_ref.extractall(model_dir)
-        
+
     # remove zipfile
     os.remove(target_model_zip_path)
-    #os.makedirs(model_dir)
-    # if not os.path.exists(model_dir):
+    text = "Stephen Hawking studies black holes"
+    
+    with MagpieModel(model_dir) as magpie_model:
+        predicted_text = magpie_model.predict_from_text(text)
+
+    print(predicted_text)
