@@ -33,11 +33,16 @@ sh clean_venv.sh
 build_vendored.sh
 ```
 
+## Run locally
+```
+serverless invoke local -f predict --data '{"text":"Stephen Hawking studies black holes"}' --log
+```
 ## TODOs
 
-- [ ] Create a real function not just an import magpie
+- [x] Create a real function not just an import magpie
 - [x] Make a better shell script for the zip
 - [ ] Add [CircleCI](https://serverless.com/blog/ci-cd-workflow-serverless-apps-with-circleci/) continuous integration badge and an explanation guide. 
 - [ ] Add an AWS deployment button
+- [ ] Load the model globally before a lambda function get called, like in this [repo](https://github.com/Vetal1977/tf_aws_lambda)
 
 

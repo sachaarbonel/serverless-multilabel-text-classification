@@ -10,6 +10,8 @@ package:
     - venv/*
     - build_vendored.sh
     - clean_venv.sh
+    - data/**
+    # - model/**
 
 provider:
   name: aws
@@ -20,4 +22,9 @@ provider:
 
 functions:
   predict:
-    handler: handler.main
+    handler: handler.predict
+    events:
+      - http:
+          path: /
+          method: post
+          cors: true
