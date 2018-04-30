@@ -1,5 +1,4 @@
 import os
-import operator
 from magpie import Magpie
 import settings
 import pickle
@@ -14,6 +13,14 @@ class MagpieModel:
         labels=self.load_labels(model_dir)
         )
 
+    def __enter__(self):
+        # for using with "with" block
+        return self
+
+    def __exit__(self, type_, value, traceback):
+        # close session at the end of "with" block
+        #self.destroy()
+        return self
 
     def load_labels(self,model_dir):
         with open(model_dir+'/{}.pkl'.format(settings.MODEL_LABELS_FILE_NAME_ENV_VAR), 'rb') as f:

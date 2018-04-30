@@ -9,7 +9,6 @@ sys.path.append(os.path.join(current_location, 'vendored'))
 
 
 from magpie_model import MagpieModel
-import json
 import logging
 import pickle
 import numpy as np
