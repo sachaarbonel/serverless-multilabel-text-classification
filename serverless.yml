@@ -23,7 +23,9 @@ provider:
   runtime: python3.6
   stage: dev
   region: us-east-1
-  timeout: 30
+  memorySize: 1536
+  timeout: 300
+
   environment:
     MODEL_ZIP_FILE_NAME_ENV_VAR : 'magpie-model.zip'
     MODEL_KERAS_FILE_NAME_ENV_VAR : 'keras_model.h5'

@@ -48,8 +48,8 @@ def download_model_from_bucket(model_dir):
     # protobuf_file_name = get_env_var_or_raise_exception(settings.MODEL_PROTOBUF_FILE_NAME_ENV_VAR)
     # model_path = model_dir + '/' + protobuf_file_name
     #if not os.path.isfile(model_path):
-    bucket_name = get_env_var_or_raise_exception(settings.S3_MODEL_BUCKET_NAME_ENV_VAR)
-    model_zip_file_name = get_env_var_or_raise_exception(settings.MODEL_ZIP_FILE_NAME_ENV_VAR)
+    bucket_name = settings.S3_MODEL_BUCKET_NAME_ENV_VAR
+    model_zip_file_name = settings.MODEL_ZIP_FILE_NAME_ENV_VAR
     print('Going to download a model file from S3 bucket {}/{}...'.format(bucket_name, model_zip_file_name))
 
     # create S3 resource

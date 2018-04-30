@@ -1,4 +1,3 @@
-import os
 from magpie import Magpie
 import settings
 import pickle

@@ -4,21 +4,21 @@ from the vendored folder
 '''
 import os
 import sys
-current_location = os.path.dirname(os.path.realpath(__file__))
-sys.path.append(os.path.join(current_location, 'vendored'))
-
-
-from magpie_model import MagpieModel
 import logging
-import pickle
-import numpy as np
-import utils
 
 logger = logging.getLogger()
 if logger.handlers:
     for handler in logger.handlers:
         logger.removeHandler(handler)
 logging.basicConfig(level=logging.INFO)
+
+current_location = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(os.path.join(current_location, 'vendored'))
+logger.info(current_location)
+logger.info(sys.path.append(os.path.join(current_location, 'vendored')))
+from magpie_model import MagpieModel
+import numpy as np
+import utils
 
 
 '''
