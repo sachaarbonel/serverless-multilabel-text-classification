@@ -34,8 +34,7 @@ build_vendored.sh
 ```
 
 ## Run locally
-- First uncomment "- model/**" in serverless.yml
-- Then
+
 ```
 serverless invoke local -f predict --data '{"text":"Stephen Hawking studies black holes"}' --log
 ```
