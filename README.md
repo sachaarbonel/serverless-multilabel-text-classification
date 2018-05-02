@@ -28,10 +28,7 @@ cd serverless-multilabel-text-classification
 virtualenv venv --python=python3
 source venv/bin/activate
 pip3 install git+https://github.com/inspirehep/magpie.git@v2.0 && pip3 install tensorflow
-cd model
-wget https://github.com/Sach97/serverless-multilabel-text-classification/archive/v0.1.zip
-cd
-serverless invoke local -f predict --data '{"text":"Stephen Hawking studies black holes"}' --log
+serverless invoke local -f predict --data '{"text":"Stephen Hawking studies black holes"}' --log # uncomment the two lines in handler.py
 ```
 
 ## Build the code dependcy package yourself + train model
