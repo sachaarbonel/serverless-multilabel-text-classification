@@ -4,6 +4,10 @@
 Trying to deploy in a serverless fashion this [framework](https://github.com/inspirehep/magpie).
 The serverless function works locally but still needs some tweaks to work in the cloud. The model folder contains the pretrained model for the function to work. Pull request highly appreciated.
 
+
+## Status
+The package is to heavy for aws lambda even with some tweaks by reducing dependencies size (get rid of shared libraries etc). I've not tested on kubeless. I keep the repository up for the records
+
 ## Prerequesites
 
 - Have node and npm installed. There is a good guide for installing node and npm on linux [here](https://github.com/creationix/nvm)
